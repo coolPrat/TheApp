@@ -1,4 +1,4 @@
-package com.example.shrinivas.theapp;
+package com.example.theapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

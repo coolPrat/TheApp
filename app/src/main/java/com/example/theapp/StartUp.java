@@ -1,18 +1,27 @@
-package com.example.shrinivas.theapp;
+package com.example.theapp;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+
+import com.example.shrinivas.theapp.R;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class StartUp extends AppCompatActivity {
+public class StartUp extends AppCompatActivity implements View.OnClickListener{
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -101,13 +110,25 @@ public class StartUp extends AppCompatActivity {
                 toggle();
             }
         });
-
+        Button start = (Button) findViewById(R.id.dummy_button);
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        start.setOnClickListener(StartButtonHandler);
+        //findViewById(R.id.dummy_button).setOnClickListener();
     }
 
+    View.OnClickListener StartButtonHandler = new View.OnClickListener() {
+        public void onClick(View v) {
+
+//            int permissionCheck = ContextCompat.checkSelfPermission(AppCompatActivity,
+//                    Manifest.permission.WRITE_CALENDAR);
+
+
+
+        }
+    };
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -159,5 +180,10 @@ public class StartUp extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
