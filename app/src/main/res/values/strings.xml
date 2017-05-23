@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TheApp</string>
+
+    <string name="dummy_button">Start</string>
+    <string name="dummy_content">Photo</string>
+</resources>
